@@ -34,8 +34,9 @@ public class IntegerSums extends javax.swing.JFrame {
         sumallButton = new javax.swing.JButton();
         sumoddButton = new javax.swing.JButton();
         sumevenButton = new javax.swing.JButton();
-        listField = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        ansField = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Integer Sums");
@@ -43,12 +44,17 @@ public class IntegerSums extends javax.swing.JFrame {
 
         TitleLable.setBackground(new java.awt.Color(204, 204, 204));
         TitleLable.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
-        TitleLable.setForeground(new java.awt.Color(0, 0, 0));
+        TitleLable.setForeground(new java.awt.Color(255, 0, 0));
         TitleLable.setText("Integer Sums");
 
         inputLable.setText("Enter an Integer:");
 
-        inputField.setText("jTextField1");
+        inputField.setText("inputField");
+        inputField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputFieldActionPerformed(evt);
+            }
+        });
 
         addButton.setText("add");
 
@@ -65,49 +71,46 @@ public class IntegerSums extends javax.swing.JFrame {
             }
         });
 
-        listField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listFieldActionPerformed(evt);
-            }
-        });
+        ansField.setEditable(false);
+        ansField.setText("jTextField3");
 
-        jTextField3.setText("jTextField3");
+        listArea.setEditable(false);
+        listArea.setColumns(20);
+        listArea.setRows(5);
+        jScrollPane1.setViewportView(listArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(listField, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(inputLable)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(inputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(removeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))
-                .addGap(48, 48, 48))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(removeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(126, 126, 126)
                         .addComponent(TitleLable))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(sumallButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(sumoddButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(sumevenButton))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                        .addComponent(ansField, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(sumallButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(sumoddButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(sumevenButton)))))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,15 +123,15 @@ public class IntegerSums extends javax.swing.JFrame {
                     .addComponent(inputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addButton)
                     .addComponent(removeButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(listField, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sumallButton)
                     .addComponent(sumoddButton)
                     .addComponent(sumevenButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ansField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
 
@@ -139,9 +142,9 @@ public class IntegerSums extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_sumevenButtonActionPerformed
 
-    private void listFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listFieldActionPerformed
+    private void inputFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_listFieldActionPerformed
+    }//GEN-LAST:event_inputFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,10 +184,11 @@ public class IntegerSums extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TitleLable;
     private javax.swing.JButton addButton;
+    private javax.swing.JTextField ansField;
     private javax.swing.JTextField inputField;
     private javax.swing.JLabel inputLable;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField listField;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea listArea;
     private javax.swing.JButton removeButton;
     private javax.swing.JButton sumallButton;
     private javax.swing.JButton sumevenButton;
