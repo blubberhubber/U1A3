@@ -3,13 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.u1a3_li_jason;
-
+    
 /**
  *
  * @author 342360807
  */
 public class IntegerSums extends javax.swing.JFrame {
-
+    
+    int[] numList = new int[20];
+    int index = 0;
+    
     /**
      * Creates new form IntegerSums
      */
@@ -34,7 +37,7 @@ public class IntegerSums extends javax.swing.JFrame {
         sumallButton = new javax.swing.JButton();
         sumoddButton = new javax.swing.JButton();
         sumevenButton = new javax.swing.JButton();
-        ansField = new javax.swing.JTextField();
+        outputField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         listArea = new javax.swing.JTextArea();
 
@@ -71,8 +74,8 @@ public class IntegerSums extends javax.swing.JFrame {
             }
         });
 
-        ansField.setEditable(false);
-        ansField.setText("jTextField3");
+        outputField.setEditable(false);
+        outputField.setText("jTextField3");
 
         listArea.setEditable(false);
         listArea.setColumns(20);
@@ -99,7 +102,7 @@ public class IntegerSums extends javax.swing.JFrame {
                         .addComponent(TitleLable))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(ansField, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(outputField, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(71, 71, 71)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -131,13 +134,50 @@ public class IntegerSums extends javax.swing.JFrame {
                     .addComponent(sumoddButton)
                     .addComponent(sumevenButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(ansField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(outputField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        try{
+            outputField.setText("");
+            String x = inputField.getText();
+            int num = 0;
+            num = Integer.parseInt(x);
+            
+            for (int i = 0; i < 20; i++){
+                
+            }
+            
+            for (int i = 0; i < 20; i++){
+                if (numList[i] != 0){
+                    numList[i] = num;
+                    break;
+                }
+            }
+        }
+        
+        catch (Exception e){
+            outputField.setText("You must enter a positive integer.");
+            inputField.setText("");
+        }
+    }  
+    
+    private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        // TODO add your handling code here:
+    }  
+    
+    private void sumallButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        // TODO add your handling code here:
+    }  
+    
+    private void sumoddButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        // TODO add your handling code here:
+    }  
+    
     private void sumevenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumevenButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sumevenButtonActionPerformed
@@ -184,11 +224,11 @@ public class IntegerSums extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TitleLable;
     private javax.swing.JButton addButton;
-    private javax.swing.JTextField ansField;
     private javax.swing.JTextField inputField;
     private javax.swing.JLabel inputLable;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea listArea;
+    private javax.swing.JTextField outputField;
     private javax.swing.JButton removeButton;
     private javax.swing.JButton sumallButton;
     private javax.swing.JButton sumevenButton;
