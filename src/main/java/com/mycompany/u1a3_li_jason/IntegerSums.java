@@ -167,20 +167,23 @@ public class IntegerSums extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void sumevenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumevenButtonActionPerformed
+        outputField.setText("");
+        inputField.setText("");
+        
         int ans = 0;
         String arrayString = "";
         
         for (int i = 0; i <= index; i++){
             if (numList[i] % 2 == 0){
-                ans += i;
+                ans += numList[i];
             }
         }
         
         for (int i = 0; i < index; i++){
             if (numList[i] % 2 == 0){
                 arrayString += numList[i] + "\n";
-                listArea.setText(arrayString);
             }
+            listArea.setText(arrayString);
         }
         outputField.setText("The sum of all even numbers is "+ans);
     }//GEN-LAST:event_sumevenButtonActionPerformed
@@ -193,48 +196,42 @@ public class IntegerSums extends javax.swing.JFrame {
             int num = Integer.parseInt(numString);
             boolean numArray = false;
             String arrayString = "";
-            numList[index++] = num;
             
-            for (int i = 0; i < index; i++){
-                if (numList[i] == num){
-                    numArray = true;
-                    numList[i] = 0;
-                    break;
+            if (index != 0){
+                for (int i = 0; i < index; i++){
+                    if (numList[i] == num){
+                        numArray = true;
+                        numList[i] = 0;
+                        break;
+                    }
+                }
+                
+                if (numArray){ 
+                    for (int i = 1; i < index; i++){
+                        if (numList[i-1] == 0){
+                            numList[i-1] = numList[i];
+                            numList[i] = 0;
+                        }
+                    }
+                
+                    index--;
+                
+                    for (int i = 0; i < index; i++){
+                        arrayString += numList[i] + "\n";
+                    }  
+                    listArea.setText(arrayString);
                 }
                 else{
-                    outputField.setText("The number you wish to remove is not present.");
+                    outputField.setText("The number is not in the list.");
                 }
-            }
-            
-            if (numArray){
-                
-                for (int i = 1; i < index; i++){
-                    if (numList[i] == 0){
-                        numList[i] = numList[i-1];
-                        numList[i-1] = 0;
-                        continue;
-                    }
-                    else{
-                        continue;
-                    }
-                }
-                index--;
-                
-                for (int i = 0; i < index; i++){
-                    if (numList[i] == 0){
-                        continue;
-                    }
-                    arrayString += numList[i] + "\n";
-                    listArea.setText(arrayString);
-                }   
             }
             else{
-                outputField.setText("The number is not in the list.");
+                outputField.setText("The list is empty.");
             }
         }
         
         catch (Exception e){
-            outputField.setText("You must enter a positive integer.");
+            outputField.setText("You must enter a positive whole number.");
             inputField.setText("");
         }
     }//GEN-LAST:event_removeButtonActionPerformed
@@ -245,57 +242,69 @@ public class IntegerSums extends javax.swing.JFrame {
         
         try{
             int num = Integer.parseInt(numString);
-            
-            numList[index++] = num;
-            
             String arrayString = "";
             
-            for (int i = 0; i < index; i++){
-                if (numList[i] == 0){
-                    continue;
+            if (num >= 1){
+                if (index < 20){
+                    numList[index++] = num;
                 }
-                arrayString += numList[i] + "\n";
+                else{
+                    outputField.setText("The list is full.");
+                }
+            
+                for (int i = 0; i < index; i++){
+                    arrayString += numList[i] + "\n";      
+                }   
                 listArea.setText(arrayString);
-            }    
+            }
+            else{
+                outputField.setText("Please enter a number greater than 0");
+            }
         }
         
         catch (Exception e){
-            outputField.setText("You must enter a positive integer.");
+            outputField.setText("You must enter a positive whole number.");
             inputField.setText("");
         }
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void sumoddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumoddButtonActionPerformed
+        outputField.setText("");
+        inputField.setText("");
+
         int ans = 0;
         String arrayString = "";
         
         for (int i = 0; i <= index; i++){
             if (numList[i] % 2 == 1){
-                ans += i;
+                ans += numList[i];
             }
         }
         
         for (int i = 0; i < index; i++){
             if (numList[i] % 2 == 1){
                 arrayString += numList[i] + "\n";
-                listArea.setText(arrayString);
             }
+            listArea.setText(arrayString);
         }
         outputField.setText("The sum of all odd numbers is "+ans);
     }//GEN-LAST:event_sumoddButtonActionPerformed
 
     private void sumallButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumallButtonActionPerformed
+        outputField.setText("");
+        inputField.setText("");
+
         int ans = 0;
         String arrayString = "";
         
         for (int i = 0; i <= index; i++){
-            ans += i;
+            ans += numList[i];
         }
         
         for (int i = 0; i < index; i++){
             arrayString += numList[i] + "\n";
-            listArea.setText(arrayString);
         }
+        listArea.setText(arrayString);
         outputField.setText("The sum of all numbers is "+ans);
     }//GEN-LAST:event_sumallButtonActionPerformed
 
