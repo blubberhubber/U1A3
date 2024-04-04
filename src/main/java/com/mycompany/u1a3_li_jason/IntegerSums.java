@@ -60,12 +60,32 @@ public class IntegerSums extends javax.swing.JFrame {
         });
 
         addButton.setText("add");
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
 
         removeButton.setText("remove");
+        removeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeButtonActionPerformed(evt);
+            }
+        });
 
         sumallButton.setText("all");
+        sumallButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sumallButtonActionPerformed(evt);
+            }
+        });
 
         sumoddButton.setText("odd");
+        sumoddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sumoddButtonActionPerformed(evt);
+            }
+        });
 
         sumevenButton.setText("even");
         sumevenButton.addActionListener(new java.awt.event.ActionListener() {
@@ -87,76 +107,129 @@ public class IntegerSums extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(inputLable)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(inputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(removeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(TitleLable))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(outputField, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(sumallButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(sumoddButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(sumevenButton)))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                                .addComponent(addButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(removeButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(inputLable)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(inputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(sumallButton)
+                            .addComponent(sumoddButton)
+                            .addComponent(sumevenButton))
+                        .addGap(52, 52, 52))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(outputField, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(29, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addComponent(TitleLable)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(TitleLable, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputLable)
-                    .addComponent(inputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addButton)
-                    .addComponent(removeButton))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sumallButton)
-                    .addComponent(sumoddButton)
-                    .addComponent(sumevenButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(inputLable)
+                            .addComponent(inputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(addButton)
+                            .addComponent(removeButton))
+                        .addGap(86, 86, 86)
+                        .addComponent(sumallButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(sumoddButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(sumevenButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(outputField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        try{
-            outputField.setText("");
-            String x = inputField.getText();
-            int num = 0;
-            num = Integer.parseInt(x);
-            
-            for (int i = 0; i < 20; i++){
-                
+    private void sumevenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumevenButtonActionPerformed
+        int ans = 0;
+        String arrayString = "";
+        
+        for (int i = 0; i < index; i++){
+            if (numList[i] % 2 == 0){
+                ans += i;
             }
+        }
+        
+        for (int i = 0; i < index; i++){
+            if (numList[i] % 2 == 0){
+                arrayString += numList[i] + "\n";
+                listArea.setText(arrayString);
+            }
+        }
+        outputField.setText("The sum of all even numbers is "+ans);
+    }//GEN-LAST:event_sumevenButtonActionPerformed
+
+    private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
+        outputField.setText("");
+        String numString = inputField.getText();
+        
+        try{
+            int num = Integer.parseInt(numString);
+            boolean numArray = false;
+            String arrayString = "";
+            numList[index++] = num;
             
-            for (int i = 0; i < 20; i++){
-                if (numList[i] != 0){
-                    numList[i] = num;
+            for (int i = 0; i < index; i++){
+                if (numList[i] == num){
+                    numArray = true;
+                    numList[i] = 0;
                     break;
                 }
+                else{
+                    outputField.setText("The number you wish to remove is not present.");
+                }
+            }
+            
+            if (numArray){
+                
+                for (int i = 1; i < index; i++){
+                    if (numList[i] == 0){
+                        numList[i] = numList[i-1];
+                        numList[i-1] = 0;
+                        continue;
+                    }
+                    else{
+                        continue;
+                    }
+                }
+                index--;
+                
+                for (int i = 0; i < index; i++){
+                    if (numList[i] == 0){
+                        continue;
+                    }
+                    arrayString += numList[i] + "\n";
+                    listArea.setText(arrayString);
+                }   
+            }
+            else{
+                outputField.setText("The number is not in the list.");
             }
         }
         
@@ -164,23 +237,67 @@ public class IntegerSums extends javax.swing.JFrame {
             outputField.setText("You must enter a positive integer.");
             inputField.setText("");
         }
-    }  
-    
-    private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        // TODO add your handling code here:
-    }  
-    
-    private void sumallButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        // TODO add your handling code here:
-    }  
-    
-    private void sumoddButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        // TODO add your handling code here:
-    }  
-    
-    private void sumevenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumevenButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sumevenButtonActionPerformed
+    }//GEN-LAST:event_removeButtonActionPerformed
+
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        outputField.setText("");
+        String numString = inputField.getText();
+        
+        try{
+            int num = Integer.parseInt(numString);
+            
+            numList[index++] = num;
+            
+            String arrayString = "";
+            
+            for (int i = 0; i < index; i++){
+                if (numList[i] == 0){
+                    continue;
+                }
+                arrayString += numList[i] + "\n";
+                listArea.setText(arrayString);
+            }    
+        }
+        
+        catch (Exception e){
+            outputField.setText("You must enter a positive integer.");
+            inputField.setText("");
+        }
+    }//GEN-LAST:event_addButtonActionPerformed
+
+    private void sumoddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumoddButtonActionPerformed
+        int ans = 0;
+        String arrayString = "";
+        
+        for (int i = 0; i < index; i++){
+            if (numList[i] % 2 == 1){
+                ans += i;
+            }
+        }
+        
+        for (int i = 0; i < index; i++){
+            if (numList[i] % 2 == 1){
+                arrayString += numList[i] + "\n";
+                listArea.setText(arrayString);
+            }
+        }
+        outputField.setText("The sum of all odd numbers is "+ans);
+    }//GEN-LAST:event_sumoddButtonActionPerformed
+
+    private void sumallButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumallButtonActionPerformed
+        int ans = 0;
+        String arrayString = "";
+        
+        for (int i = 0; i < index; i++){
+            ans += i;
+        }
+        
+        for (int i = 0; i < index; i++){
+            arrayString += numList[i] + "\n";
+            listArea.setText(arrayString);
+        }
+        outputField.setText("The sum of all numbers is "+ans);
+    }//GEN-LAST:event_sumallButtonActionPerformed
 
     private void inputFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputFieldActionPerformed
         // TODO add your handling code here:
