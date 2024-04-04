@@ -52,7 +52,6 @@ public class IntegerSums extends javax.swing.JFrame {
 
         inputLable.setText("Enter an Integer:");
 
-        inputField.setText("inputField");
         inputField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputFieldActionPerformed(evt);
@@ -95,7 +94,6 @@ public class IntegerSums extends javax.swing.JFrame {
         });
 
         outputField.setEditable(false);
-        outputField.setText("jTextField3");
 
         listArea.setEditable(false);
         listArea.setColumns(20);
@@ -107,32 +105,30 @@ public class IntegerSums extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(addButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(removeButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(inputLable)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(inputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(sumallButton)
-                            .addComponent(sumoddButton)
-                            .addComponent(sumevenButton))
-                        .addGap(52, 52, 52))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(outputField, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(29, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addComponent(TitleLable)
-                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(addButton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(removeButton))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(inputLable)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(inputField, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(sumallButton)
+                                    .addComponent(sumoddButton)
+                                    .addComponent(sumevenButton)))
+                            .addComponent(outputField, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addComponent(TitleLable)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +140,7 @@ public class IntegerSums extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
+                        .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(inputLable)
                             .addComponent(inputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -160,7 +156,7 @@ public class IntegerSums extends javax.swing.JFrame {
                         .addComponent(sumevenButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(outputField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -197,36 +193,42 @@ public class IntegerSums extends javax.swing.JFrame {
             boolean numArray = false;
             String arrayString = "";
             
-            if (index != 0){
-                for (int i = 0; i < index; i++){
-                    if (numList[i] == num){
-                        numArray = true;
-                        numList[i] = 0;
-                        break;
-                    }
-                }
-                
-                if (numArray){ 
-                    for (int i = 1; i < index; i++){
-                        if (numList[i-1] == 0){
-                            numList[i-1] = numList[i];
+            if (num >= 1){
+                if (index != 0){
+                    for (int i = 0; i < index; i++){
+                        if (numList[i] == num){
+                            numArray = true;
                             numList[i] = 0;
+                            break;
                         }
                     }
                 
-                    index--;
+                    if (numArray){ 
+                        for (int i = 1; i < index; i++){
+                            if (numList[i-1] == 0){
+                                numList[i-1] = numList[i];
+                                numList[i] = 0;
+                            }
+                        }
                 
-                    for (int i = 0; i < index; i++){
-                        arrayString += numList[i] + "\n";
-                    }  
-                    listArea.setText(arrayString);
+                        index--;
+                
+                        for (int i = 0; i < index; i++){
+                            arrayString += numList[i] + "\n";
+                        }  
+                        listArea.setText(arrayString);
+                    }
+                    else{
+                        outputField.setText("The number is not in the list.");
+                    }
                 }
                 else{
-                    outputField.setText("The number is not in the list.");
+                    outputField.setText("The list is empty.");
                 }
             }
             else{
-                outputField.setText("The list is empty.");
+                outputField.setText("Please enter a number greater than 0");
+                inputField.setText("");
             }
         }
         
@@ -259,6 +261,7 @@ public class IntegerSums extends javax.swing.JFrame {
             }
             else{
                 outputField.setText("Please enter a number greater than 0");
+                inputField.setText("");
             }
         }
         
