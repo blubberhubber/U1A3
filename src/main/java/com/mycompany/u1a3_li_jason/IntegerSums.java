@@ -170,7 +170,7 @@ public class IntegerSums extends javax.swing.JFrame {
         int ans = 0;
         String arrayString = "";
         
-        for (int i = 0; i < index; i++){
+        for (int i = 0; i <= index; i++){
             if (numList[i] % 2 == 0){
                 ans += i;
             }
@@ -269,7 +269,7 @@ public class IntegerSums extends javax.swing.JFrame {
         int ans = 0;
         String arrayString = "";
         
-        for (int i = 0; i < index; i++){
+        for (int i = 0; i <= index; i++){
             if (numList[i] % 2 == 1){
                 ans += i;
             }
@@ -288,7 +288,7 @@ public class IntegerSums extends javax.swing.JFrame {
         int ans = 0;
         String arrayString = "";
         
-        for (int i = 0; i < index; i++){
+        for (int i = 0; i <= index; i++){
             ans += i;
         }
         
